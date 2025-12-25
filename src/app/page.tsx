@@ -1,9 +1,8 @@
-import { Icon } from "@/kit";
+import { Flex } from "@/kit";
 
 export default function Home() {
   return (
-    <div>
-      <Icon name="logo_nilkbit"/>
-    </div>
+    <>
+    </>
   );
 }
