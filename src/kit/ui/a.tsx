@@ -1,4 +1,4 @@
-import { type DefaultProps, type Color, type Text } from "@/types";
+import { type DefaultProps, type Color, type Text } from "@/types/kit";
 import Link from "next/link";
 import { Styled } from "@/kit";
 

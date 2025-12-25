@@ -1,6 +1,6 @@
 'use client';
 
-import { DefaultProps } from '@/types';
+import { DefaultProps } from '@/types/kit';
 import styled from '@emotion/styled';
 
 interface StyledProps extends DefaultProps {
