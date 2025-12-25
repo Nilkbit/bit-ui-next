@@ -45,5 +45,24 @@ interface DefaultProps extends React.HTMLAttributes<HTMLElement>  {
   children?: React.ReactNode
 }
 
-export type { DefaultProps, Color, Size, Text }
+type Icons = 
+  | 'open-in-new'
+  | 'money-bag'
+  | 'menu'
+  | 'logo_youtube'
+  | 'logo_vue'
+  | 'logo_vscodium'
+  | 'logo_twitch'
+  | 'logo_telegram'
+  | 'logo_supabase'
+  | 'logo_sass'
+  | 'logo_react'
+  | 'logo_postgresql'
+  | 'logo_nuxtdotjs'
+  | 'logo_nilkbit'
+  | 'logo_nextdotjs'
+  | 'logo_github'
+  | 'logo_figma';
+
+export type { DefaultProps, Color, Size, Text, Icons }
 export { nRem, color, size }

@@ -1,14 +1,14 @@
-import { type DefaultProps, type Color, type Text } from "@/types/kit";
+import { type DefaultProps, type Color, type Text, color } from "@/types/kit";
 import Link from "next/link";
 import { Styled } from "@/kit";
 
-interface AProps extends DefaultProps {
+export interface AProps extends DefaultProps {
   href: string,
   colors?: [Color, Color],
   text?: Text
 }
 
-const A = ({
+export const A = ({
   children,
   href,
   colors = ["gray1", "gray2"],
@@ -17,11 +17,11 @@ const A = ({
 }: AProps) => {
 
   const defaultStyle: React.CSSProperties = {
-    color: `var(--color-${colors[0]})`
+    color: `${color[colors[0]]}`
   }
 
   const hoverStyle: React.CSSProperties = {
-    color: `var(--color-${colors[1]})`
+    color: `${color[colors[1]]}`
   }
 
   return (
@@ -39,5 +39,3 @@ const A = ({
     </Link>
   );
 }
-
-export default A;

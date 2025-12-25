@@ -3,7 +3,7 @@
 import { DefaultProps } from '@/types/kit';
 import styled from '@emotion/styled';
 
-interface StyledProps extends DefaultProps {
+export interface StyledProps extends DefaultProps {
   as?: React.ElementType,
   defaultStyle?: React.CSSProperties,
   hoverStyle?: React.CSSProperties,
@@ -26,7 +26,7 @@ const Style = styled.div<StyledStyleProps>((props) => ({
   },
 }));
 
-const Styled = ({
+export const Styled = ({
   children,
   as = 'div',
   defaultStyle = {},
@@ -48,5 +48,3 @@ const Styled = ({
 };
 
 Styled.displayName = 'Styled';
-
-export default Styled;

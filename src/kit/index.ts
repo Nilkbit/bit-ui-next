@@ -1,4 +1,3 @@
-import Styled from "./styled";
-import A from "./ui/a";
-
-export { Styled, A }
+export { Styled, type StyledProps } from './styled';
+export { A, type AProps } from './ui/a';
+export { Icon, type IconProps } from './ui/icon';
