@@ -73,6 +73,13 @@ body {
   background-color: map-get($color, gray5);
   color: map-get($color, gray1);
   min-height: 100vh;
+  width: 100%;
+}
+
+svg {
+  height: 1em;
+  width: auto;
+  display: block;
 }
 
 // Typography

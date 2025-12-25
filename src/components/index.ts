@@ -1,0 +1,1 @@
+export { Styled, type StyledProps } from './styled';

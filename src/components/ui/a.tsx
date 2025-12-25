@@ -1,6 +1,6 @@
 import { type DefaultProps, type Color, type Text, color } from "@/types/kit";
 import Link from "next/link";
-import { Styled } from "@/kit";
+import { Styled } from "@/components";
 
 export interface AProps extends DefaultProps {
   href: string,
@@ -28,11 +28,12 @@ export const A = ({
     <Link
       href={href}
       {...props}
-      className={`${text} ${props.className}`}
+      className={props.className}
     >
       <Styled as="span"
         defaultStyle={defaultStyle}
         hoverStyle={hoverStyle}
+        className={text}
       >
         {children}
       </Styled>
