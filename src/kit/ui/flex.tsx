@@ -30,7 +30,7 @@ export const Flex = ({
   }
 
   return (
-    <Styled as={as} defaultStyle={defaultStyle}>
+    <Styled as={as} defaultStyle={defaultStyle} {...props}>
       {children}
     </Styled>
   );
