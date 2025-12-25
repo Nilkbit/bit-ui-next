@@ -36,9 +36,14 @@ const size = {
   xs: 576
 } as const satisfies Record<Size, number>;
 
+type TextHeading = "heading1"|"heading2"|"heading3"|"heading4";
+type TextBody = "body1"|"body2"|"body3"|"body4";
+type TextMono = "mono1"|"mono2"|"mono3"|"mono4";
+type Text = TextHeading | TextBody | TextMono;
+
 interface DefaultProps extends React.HTMLAttributes<HTMLElement>  {
   children?: React.ReactNode
 }
 
-export type { DefaultProps, Color, Size }
+export type { DefaultProps, Color, Size, Text }
 export { nRem, color, size }

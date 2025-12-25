@@ -27,7 +27,7 @@ const Style = styled.div<StyledStyleProps>((props) => ({
 }));
 
 const Styled = ({
-  children, className, style,
+  children,
   as = 'div',
   defaultStyle = {},
   hoverStyle = {},
@@ -36,7 +36,6 @@ const Styled = ({
 }: StyledProps) => {
   return (
     <Style
-      className={className} style={style}
       as={as}
       defaultStyle={defaultStyle}
       hoverStyle={hoverStyle}

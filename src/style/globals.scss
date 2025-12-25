@@ -1,0 +1,107 @@
+@use "sass:map";
+@use "sass:list";
+
+$color: (
+  gray1: #E0E0E0,
+  gray2: #A8A8A8,
+  gray3: #707070,
+  gray4: #383838,
+  gray5: #000000,
+  accent1: #9BC7A2,
+  accent2: #80FF95,
+  accent3: #00FF2B,
+  accent4: #296633,
+  accent5: #2C382E
+);
+
+$size: (
+  lg: 1920px,
+  md: 1440px,
+  sm: 1024px,
+  xs: 576px
+);
+
+$font: (
+  heading: var(--font-heading),
+  body: var(--font-body),
+  mono: var(--font-mono),
+);
+
+$nRem: 0.0625rem;
+
+:root {
+  @each $name, $value in $color {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $size {
+    --size-#{$name}: #{$value};
+  }
+
+  --nRem: #{$nRem};
+
+  font-size: 16px;
+}
+
+*, *::after, *::before {
+  transition: all .333s cubic-bezier(0.3, 1, 0.3, 1);
+
+  box-sizing: border-box;
+  position: relative;
+
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: map-get($color, gray5);
+  color: map-get($color, gray1);
+  min-height: 100vh;
+}
+
+// Typography
+$typography: (
+  heading1: (heading, 96, 900),
+  heading2: (heading, 64, 800),
+  heading3: (heading, 48, 800),
+  heading4: (heading, 40, 700),
+  body1: (body, 40, 600),
+  body2: (body, 32, 600),
+  body3: (body, 24, 500),
+  body4: (body, 20, 500),
+  mono1: (mono, 24, 700),
+  mono2: (mono, 20, 700),
+  mono3: (mono, 16, 500),
+  mono4: (mono, 12, 500)
+);
+@mixin typography($family, $size, $weight) {
+  font-family: map-get($font, #{$family});
+  font-size: $size;
+  font-weight: $weight;
+  font-style: normal;
+  line-height: 115%;
+}
+@each $name, $value in $typography {
+  $family: list.nth($value, 1);
+  $size: list.nth($value, 2);
+  $weight: list.nth($value, 3);
+  .#{$name} {
+    @include typography($family, $size, $weight);
+  }
+}

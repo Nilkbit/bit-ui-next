@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { StyledComponentsRegistry } from '@/lib/emotion';
+import "@/style/globals.scss";
+import { fontHeading, fontBody, fontMono } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "bit-ui",
@@ -13,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${fontHeading.variable} ${fontBody.variable} ${fontMono.variable}`}>
         <StyledComponentsRegistry>
           {children}
         </StyledComponentsRegistry>
