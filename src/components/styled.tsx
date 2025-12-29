@@ -11,7 +11,11 @@ export interface StyledProps extends DefaultProps {
   lgStyle?: React.CSSProperties,
   mdStyle?: React.CSSProperties,
   smStyle?: React.CSSProperties,
-  xsStyle?: React.CSSProperties
+  xsStyle?: React.CSSProperties,
+  beforeStyle?: React.CSSProperties,
+  afterStyle?: React.CSSProperties,
+  hoverBeforeStyle?: React.CSSProperties,
+  hoverAfterStyle?: React.CSSProperties
 }
 
 interface StyledStyleProps {
@@ -21,7 +25,11 @@ interface StyledStyleProps {
   lgStyle: React.CSSProperties,
   mdStyle: React.CSSProperties,
   smStyle: React.CSSProperties,
-  xsStyle: React.CSSProperties
+  xsStyle: React.CSSProperties,
+  beforeStyle: React.CSSProperties,
+  afterStyle: React.CSSProperties,
+  hoverBeforeStyle: React.CSSProperties,
+  hoverAfterStyle: React.CSSProperties
 }
 
 const Style = styled.div<StyledStyleProps>((props) => ({
@@ -43,6 +51,18 @@ const Style = styled.div<StyledStyleProps>((props) => ({
   },
   '@media screen and (min-width: 1920px)': {
     ...props.lgStyle
+  },
+  '&::before': {
+    ...props.beforeStyle
+  },
+  '&::after': {
+    ...props.afterStyle
+  },
+  '&:hover::before': {
+    ...props.hoverBeforeStyle
+  },
+  '&:hover::after': {
+    ...props.hoverAfterStyle
   }
 }));
 
@@ -56,6 +76,10 @@ export const Styled = ({
   mdStyle = {},
   smStyle = {},
   xsStyle = {},
+  beforeStyle = {},
+  afterStyle = {},
+  hoverBeforeStyle = {},
+  hoverAfterStyle = {},
   ...props
 }: StyledProps) => {
   return (
@@ -68,6 +92,10 @@ export const Styled = ({
       mdStyle={mdStyle}
       smStyle={smStyle}
       xsStyle={xsStyle}
+      beforeStyle={beforeStyle}
+      afterStyle={afterStyle}
+      hoverBeforeStyle={hoverBeforeStyle}
+      hoverAfterStyle={hoverAfterStyle}
       {...props}
     >
       {children}
