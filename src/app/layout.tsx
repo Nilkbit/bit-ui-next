@@ -3,7 +3,7 @@ import { StyledComponentsRegistry } from '@/lib/emotion';
 import "@/style/globals.scss";
 import { fontHeading, fontBody, fontMono } from "@/fonts";
 import { Flex } from "@/components/ui";
-import { Header } from "@/components/elements";
+import { Header, Footer } from "@/components/elements";
 import { nRem, type Size } from "@/types/kit";
 
 export const metadata: Metadata = {
@@ -41,6 +41,7 @@ export default function RootLayout({
           >
             {children}
           </Flex>
+          <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
