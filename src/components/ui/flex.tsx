@@ -1,22 +1,14 @@
-import { nRem, type DefaultProps } from "@/types/kit";
-import { Styled } from "@/components";
+import { nRem } from "@/types/kit";
+import { Styled, type StyledProps } from "@/components";
 
-export interface FlexProps extends DefaultProps {
-  as?: React.ElementType,
+export interface FlexProps extends StyledProps {
   direction?: "row"|"row-reverse"|"column"|"column-reverse",
   wrap?: "nowrap"|"wrap"|"wrap-reverse",
   gap?: number,
   padding?: number[],
   radius?: number[],
   align?: "flex-start"|"flex-end"|"center"|"stretch",
-  justify?: "flex-start"|"flex-end"|"center"|"stretch"|"space-between"|"space-around"|"space-evenly",
-  defaultStyle?: React.CSSProperties,
-  hoverStyle?: React.CSSProperties,
-  activeStyle?: React.CSSProperties,
-  lgStyle?: React.CSSProperties,
-  mdStyle?: React.CSSProperties,
-  smStyle?: React.CSSProperties,
-  xsStyle?: React.CSSProperties
+  justify?: "flex-start"|"flex-end"|"center"|"stretch"|"space-between"|"space-around"|"space-evenly"
 }
 
 export const Flex = ({
