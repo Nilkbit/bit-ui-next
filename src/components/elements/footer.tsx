@@ -33,10 +33,10 @@ export const Footer = () => {
           <li key={p.name}><A href={p.href}>{p.name}</A></li>
         )})}
       </Flex>
-      <A text="heading1" href="/"><Icon name="logo_nilkbit"/></A>
+      <A href="/"><Icon width={96} height={96} name="logo_nilkbit"/></A>
       <Flex as="ul" direction="column" gap={12}>
         {links.map(l => {return(
-          <li key={l.name}><A href={l.href}><Flex as="span" gap={8}><Icon name={l.icon}/>{l.name}</Flex></A></li>
+          <li key={l.name}><A href={l.href}><Flex as="span" gap={8}><Icon name={l.icon} className="icon"/>{l.name}</Flex></A></li>
         )})}
       </Flex>
     </Flex>

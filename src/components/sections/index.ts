@@ -1,0 +1,1 @@
+export { SectionHello } from "./home/sectionHello";

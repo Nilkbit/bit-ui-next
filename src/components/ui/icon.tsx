@@ -16,7 +16,7 @@ export const Icon = ({
 }: IconProps) => {
 
   return (
-    <svg width={width} height={height} viewBox={viewBox}>
+    <svg width={width} height={height} viewBox={viewBox} className={props.className}>
       <use href={`/sprite.svg#${name}`}></use>
     </svg>
   );

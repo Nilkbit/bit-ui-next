@@ -25,7 +25,7 @@ export default function RootLayout({
   } as const satisfies Record<Size, number>;
 
   const getPadding = (pad: number) => {
-    return ({padding: `0 calc(${nRem} * ${pad})`}) as React.CSSProperties;
+    return ({padding: `calc(${nRem} * 100) calc(${nRem} * ${pad}) calc(${nRem} * 36)`}) as React.CSSProperties;
   }
 
   return (

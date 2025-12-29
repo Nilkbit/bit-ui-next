@@ -17,7 +17,10 @@ export const Header = () => {
   }
 
   const defaultStyle: React.CSSProperties = {
-    borderBottom: `1px solid ${color.gray4}`
+    borderBottom: `1px solid ${color.gray4}`,
+    position: "fixed",
+    zIndex: 999,
+    width: "100%"
   }
 
   return (
@@ -28,7 +31,7 @@ export const Header = () => {
       xsStyle={getPadding(padding.xs)}
       defaultStyle={defaultStyle}
     >
-      <A text="body1" href="/"><Icon name="logo_nilkbit"/></A>
+      <A href="/"><Icon width={40} height={40} name="logo_nilkbit"/></A>
       <Flex as="ul" gap={24}>
         {pages.map(p => {return(
           <li key={p.name}><A href={p.href}>{p.name}</A></li>

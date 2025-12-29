@@ -76,7 +76,11 @@ body {
   width: 100%;
 }
 
-svg {
+section {
+  width: 100%;
+}
+
+.icon {
   height: 1em;
   width: auto;
   display: block;
@@ -110,5 +114,21 @@ $typography: (
   $weight: list.nth($value, 3);
   .#{$name} {
     @include typography($family, $size, $weight);
+  }
+}
+
+// Colors
+@each $name, $value in $color {
+  .bg-#{$name} {
+    background-color: var(--color-#{$name});
+  }
+  .color-#{$name} {
+    color: var(--color-#{$name});
+  }
+  .border-#{$name} {
+    border-color: var(--color-#{$name});
+  }
+  .outline-#{$name} {
+    outline-color: var(--color-#{$name});
   }
 }
