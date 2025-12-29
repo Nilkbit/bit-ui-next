@@ -7,6 +7,7 @@ export interface FlexProps extends DefaultProps {
   wrap?: "nowrap"|"wrap"|"wrap-reverse",
   gap?: number,
   padding?: number[],
+  radius?: number[],
   align?: "flex-start"|"flex-end"|"center"|"stretch",
   justify?: "flex-start"|"flex-end"|"center"|"stretch"|"space-between"|"space-around"|"space-evenly",
   defaultStyle?: React.CSSProperties,
@@ -25,6 +26,7 @@ export const Flex = ({
   wrap = "nowrap",
   gap = 0,
   padding = [0],
+  radius = [0],
   align = "flex-start",
   justify = "flex-start",
   defaultStyle,
@@ -44,6 +46,9 @@ export const Flex = ({
     gap: `calc(${nRem} * ${gap})`,
     padding: padding.map(p => {return(
       `calc(${nRem} * ${p})`
+    )}).join(" "),
+    borderRadius: radius.map(r => {return(
+      `calc(${nRem} * ${r})`
     )}).join(" "),
     alignItems: align,
     justifyContent: justify,

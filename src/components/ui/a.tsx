@@ -1,11 +1,12 @@
-import { type DefaultProps, type Color, type Text, color } from "@/types/kit";
+import { type DefaultProps, type Color, type Text, color, type Url } from "@/types/kit";
 import Link from "next/link";
 import { Styled } from "@/components";
 
 export interface AProps extends DefaultProps {
-  href: string,
+  href: Url,
   colors?: [Color, Color],
-  text?: Text
+  text?: Text,
+  target?: React.HTMLAttributeAnchorTarget
 }
 
 export const A = ({
@@ -13,6 +14,7 @@ export const A = ({
   href,
   colors = ["gray1", "gray2"],
   text = "body4",
+  target = "_self",
   ...props
 }: AProps) => {
 
@@ -27,6 +29,7 @@ export const A = ({
   return (
     <Link
       href={href}
+      target={target}
       {...props}
       className={props.className}
     >

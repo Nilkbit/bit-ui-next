@@ -24,7 +24,7 @@ export const Header = () => {
   }
 
   return (
-    <Flex as="header" align="center" justify="space-between"
+    <Flex as="header" align="center" justify="space-between" className="bg-gray5"
       lgStyle={getPadding(padding.lg)}
       mdStyle={getPadding(padding.md)}
       smStyle={getPadding(padding.sm)}

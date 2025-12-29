@@ -36,7 +36,7 @@ export const Footer = () => {
       <A href="/"><Icon width={96} height={96} name="logo_nilkbit"/></A>
       <Flex as="ul" direction="column" gap={12}>
         {links.map(l => {return(
-          <li key={l.name}><A href={l.href}><Flex as="span" gap={8}><Icon name={l.icon} className="icon"/>{l.name}</Flex></A></li>
+          <li key={l.name}><A href={l.href} target="_blank"><Flex as="span" gap={8}><Icon name={l.icon} className="icon"/>{l.name}</Flex></A></li>
         )})}
       </Flex>
     </Flex>

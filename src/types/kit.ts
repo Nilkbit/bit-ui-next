@@ -1,3 +1,5 @@
+import type { UrlObject } from "url";
+
 const nRem = `0.0625rem`;
 
 type ColorGray = "gray1"|"gray2"|"gray3"|"gray4"|"gray5";
@@ -64,5 +66,7 @@ type Icons =
   | 'logo_github'
   | 'logo_figma';
 
-export type { DefaultProps, Color, Size, Text, Icons }
+  type Url = string | UrlObject;
+
+export type { DefaultProps, Color, Size, Text, Icons, Url }
 export { nRem, color, size }

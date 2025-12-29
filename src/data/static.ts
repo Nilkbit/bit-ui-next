@@ -1,8 +1,8 @@
-import type { Icons } from "@/types/kit";
+import type { Icons, Url } from "@/types/kit";
 
 export const pages: {
   name: string, 
-  href: `/${string}`
+  href: Url
 }[] = [
   {
     name: "Links",
@@ -12,7 +12,7 @@ export const pages: {
 
 export const links: {
   name: string,
-  href: `https://${string}`,
+  href: Url,
   icon: Icons,
   desc: string
 }[] = [
@@ -52,7 +52,7 @@ export const skills: {
   name: string,
   icon: Icons,
   desc: string,
-  href: `https://${string}`
+  href: Url
 }[] = [
  {
   name: "Figma",
