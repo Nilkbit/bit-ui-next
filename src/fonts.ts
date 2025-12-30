@@ -16,7 +16,7 @@ const fontBody = Roboto({
 
 const fontMono = Roboto_Mono({
   subsets: ["latin", "cyrillic"],
-  weight: ["700", "500"],
+  weight: ["500"],
   style: "normal",
   variable: "--font-mono"
 });
