@@ -21,7 +21,7 @@ export const SectionSkills = () => {
   return (
     <Flex as="section" direction="column" gap={32}>
       <h1 className="heading1">Skills</h1>
-      <Masonry gap={24} columns={columns}>
+      <Masonry gap={24} columns={columns} ssrColumns={1}>
         {skills.map(s => {return(
           <CardSkill key={s.name} name={s.name} icon={s.icon} href={s.href}>{s.desc}</CardSkill>
         )})}
