@@ -1,7 +1,7 @@
 "use client";
 import { Flex, Masonry } from "@/components/ui";
 import { skills } from "@/data/static";
-import { CardSkill } from "./cardSkill";
+import { CardSkill } from "@/components/elements";
 import { useWindowSize } from "react-use";
 
 export const SectionSkills = () => {
@@ -10,7 +10,7 @@ export const SectionSkills = () => {
 
   const getWidth = (width: number) => {
     let result: number = 0;
-    if (width >= 1920) result = 3;
+    if (width >= 1600) result = 3;
     else if (width >= 1024) result = 2;
     else result = 1;
     return result;

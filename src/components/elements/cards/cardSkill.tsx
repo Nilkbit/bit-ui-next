@@ -1,4 +1,3 @@
-import { Styled } from "@/components/styled";
 import { Flex, Icon } from "@/components/ui";
 import { color, type DefaultProps, type Icons, type Url } from "@/types/kit";
 import Link from "next/link";

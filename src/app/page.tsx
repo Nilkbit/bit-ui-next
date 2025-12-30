@@ -1,4 +1,5 @@
-import { SectionHello, SectionSkills } from "@/components/sections";
+import { SectionHello } from "./sectionHello";
+import { SectionSkills } from "./sectionSkills";
 
 export default function Home() {
   return (
