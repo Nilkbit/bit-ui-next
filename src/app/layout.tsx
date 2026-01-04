@@ -7,7 +7,7 @@ import { Header, Footer } from "@/components/elements";
 import { nRem, type Size } from "@/types/kit";
 
 export const metadata: Metadata = {
-  title: "bit-ui",
+  title: "Nilkbit",
   description: "Next.js",
 };
 
