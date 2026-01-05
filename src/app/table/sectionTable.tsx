@@ -129,14 +129,11 @@ export const sortList = (a: ListItem, b: ListItem, getStatusPriority: Function) 
     return 0;
   }
 
-export const SectionTable = async ({tableList}: {tableList: any}) => {
+export const SectionTable = ({ tableList }: { tableList: React.ReactNode[] }) => {
   return (
-    <Flex as="section" direction="column" gap={32}>
-      <Flex gap={20} align="center"><h1 className="heading1">Table</h1><h2 className="heading4 color-accent1">Games</h2></Flex>
-      <Flex gap={1} direction="column" defaultStyle={{ width: "100%" }}>
-        <RowHeader />
-        {tableList}
-      </Flex>
+    <Flex gap={1} direction="column" defaultStyle={{ width: "100%" }}>
+      <RowHeader />
+      {tableList}
     </Flex>
   );
 }
