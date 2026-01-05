@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Flex } from "@/components/ui";
 import { SectionTable, TableRow, type Status } from "./sectionTable";
 
@@ -30,6 +30,12 @@ export default function SectionTableSearch({
   subtitle
 }: SectionTableSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 12;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const filteredItems = useMemo(() => {
     if (!searchTerm.trim()) return initialItems;
@@ -59,8 +65,14 @@ export default function SectionTableSearch({
     });
   }, [filteredItems, statusConfig]);
 
+  const totalPages = Math.ceil(sortedItems.length / ITEMS_PER_PAGE);
+  const paginatedItems = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return sortedItems.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [sortedItems, currentPage]);
+
   const tableRows = useMemo(() => {
-    return sortedItems.map((item, index, array) => {
+    return paginatedItems.map((item, index, array) => {
       if (!item.id) return null;
 
       const statusVariant = item.status 
@@ -79,7 +91,15 @@ export default function SectionTableSearch({
         />
       );
     }).filter(Boolean);
-  }, [sortedItems, statusConfig]);
+  }, [paginatedItems, statusConfig]);
+
+  const goToPreviousPage = () => {
+    setCurrentPage(prev => Math.max(prev - 1, 1));
+  };
+
+  const goToNextPage = () => {
+    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+  };
 
   return (
     <Flex direction="column" gap={32} defaultStyle={{ width: "100%" }}>
@@ -97,6 +117,30 @@ export default function SectionTableSearch({
       />
 
       <SectionTable tableList={tableRows} />
+      
+      {totalPages > 1 && (
+        <Flex justify="center" gap={16} align="center" style={{ marginTop: '16px' }}>
+          <button
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+            className="bg-gray1 color-gray5 body4"
+          >
+            Previous
+          </button>
+          
+          <span className="mono2 color-gray1">
+            Page {currentPage} of {totalPages}
+          </span>
+          
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages}
+            className="bg-gray1 color-gray5 body4"
+          >
+            Next
+          </button>
+        </Flex>
+      )}
     </Flex>
   );
 }
