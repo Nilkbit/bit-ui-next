@@ -1,4 +1,4 @@
-import SectionTableSearch, { type GenericItem, type StatusConfig } from "../sectionTableSearch";
+import SectionTableSearch, { type GenericItem, type StatusConfig } from "../sectionTable";
 import games from "@/data/tables/contentGames";
 
 export default async function GamesPage() {

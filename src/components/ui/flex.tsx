@@ -24,6 +24,7 @@ export const Flex = ({
   defaultStyle,
   hoverStyle,
   activeStyle,
+  focusStyle,
   lgStyle,
   xsStyle,
   mdStyle,
@@ -56,6 +57,7 @@ export const Flex = ({
       mdStyle={mdStyle}
       smStyle={smStyle}
       xsStyle={xsStyle}
+      focusStyle={focusStyle}
     >
       {children}
     </Styled>

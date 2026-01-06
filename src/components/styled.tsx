@@ -8,6 +8,7 @@ export interface StyledProps extends DefaultProps {
   defaultStyle?: React.CSSProperties,
   hoverStyle?: React.CSSProperties,
   activeStyle?: React.CSSProperties,
+  focusStyle?: React.CSSProperties,
   lgStyle?: React.CSSProperties,
   mdStyle?: React.CSSProperties,
   smStyle?: React.CSSProperties,
@@ -22,6 +23,7 @@ interface StyledStyleProps {
   defaultStyle: React.CSSProperties,
   hoverStyle: React.CSSProperties,
   activeStyle: React.CSSProperties,
+  focusStyle: React.CSSProperties,
   lgStyle: React.CSSProperties,
   mdStyle: React.CSSProperties,
   smStyle: React.CSSProperties,
@@ -35,10 +37,13 @@ interface StyledStyleProps {
 const Style = styled.div<StyledStyleProps>((props) => ({
   ...props.defaultStyle,
   '&:hover': {
-    ...props.hoverStyle,
+    ...props.hoverStyle
   },
   '&:active': {
-    ...props.activeStyle,
+    ...props.activeStyle
+  },
+  '&:focus': {
+    ...props.focusStyle
   },
   '@media screen and (min-width: 576px)': {
     ...props.xsStyle
@@ -72,6 +77,7 @@ export const Styled = ({
   defaultStyle = {},
   hoverStyle = {},
   activeStyle = {},
+  focusStyle = {},
   lgStyle = {},
   mdStyle = {},
   smStyle = {},
@@ -88,6 +94,7 @@ export const Styled = ({
       defaultStyle={defaultStyle}
       hoverStyle={hoverStyle}
       activeStyle={activeStyle}
+      focusStyle={focusStyle}
       lgStyle={lgStyle}
       mdStyle={mdStyle}
       smStyle={smStyle}

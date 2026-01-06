@@ -9,6 +9,11 @@ export interface AProps extends DefaultProps {
   target?: React.HTMLAttributeAnchorTarget
 }
 
+export interface AClickProps extends DefaultProps {
+  colors?: [Color, Color],
+  text?: Text
+}
+
 export const A = ({
   children,
   href,
@@ -41,5 +46,34 @@ export const A = ({
         {children}
       </Styled>
     </Link>
+  );
+}
+
+export const AClick = ({
+  children,
+  colors = ["gray1", "gray2"],
+  text = "body4",
+  onClick,
+  ...props
+}: AClickProps) => {
+
+  const defaultStyle: React.CSSProperties = {
+    color: `${color[colors[0]]}`,
+    cursor: "pointer"
+  }
+
+  const hoverStyle: React.CSSProperties = {
+    color: `${color[colors[1]]}`
+  }
+
+  return (
+    <Styled as="span"
+      defaultStyle={defaultStyle}
+      hoverStyle={hoverStyle}
+      className={`${text} ${props.className}`}
+      {...props}
+    >
+      {children}
+    </Styled>
   );
 }
