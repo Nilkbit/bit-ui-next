@@ -7,6 +7,10 @@ export const pages: {
   {
     name: "Links",
     href: "/links"
+  },
+  {
+    name: "Table",
+    href: "/table"
   }
 ];
 
@@ -108,4 +112,14 @@ export const skills: {
   desc: "Open-source Firebase alternative powered by PostgreSQL (auth, realtime, storage).",
   href: "https://supabase.com/"
  }
+];
+
+export const tables: {
+  name: string, 
+  href: Url
+}[] = [
+  {
+    name: "Games",
+    href: "/table/games"
+  }
 ];
