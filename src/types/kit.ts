@@ -43,7 +43,7 @@ type TextBody = "body1"|"body2"|"body3"|"body4";
 type TextMono = "mono1"|"mono2"|"mono3"|"mono4";
 type Text = TextHeading | TextBody | TextMono;
 
-interface DefaultProps extends React.HTMLAttributes<HTMLElement>  {
+interface DefaultProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode
 }
 

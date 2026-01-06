@@ -53,7 +53,6 @@ export const AClick = ({
   children,
   colors = ["gray1", "gray2"],
   text = "body4",
-  onClick,
   ...props
 }: AClickProps) => {
 

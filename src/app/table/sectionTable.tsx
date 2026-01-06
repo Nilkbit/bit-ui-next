@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { AClick, Flex } from "@/components/ui";
+import { AClick, Flex, InputText } from "@/components/ui";
 import { SectionTable, TableRow, type Status } from "./sectionTableSource";
 
 export type GenericItem = {
@@ -82,7 +82,7 @@ export default function SectionTableSearch({
       return (
         <TableRow
           key={item.id}
-          index={index}
+          index={index + 1}
           last={index === array.length - 1}
           name={item.name || 'Unnamed'}
           status={item.status || 'No status'}
@@ -109,12 +109,11 @@ export default function SectionTableSearch({
       </Flex>
 
       <Flex direction='column' gap={20} defaultStyle={{width: "100%"}}>
-        <input
+        <InputText
           placeholder="Search..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="mono1 bg-gray1 color-gray5"
-          style={{ width: "300px", padding: "8px" }}
+          size="md"
         />
   
         <SectionTable tableList={tableRows} />

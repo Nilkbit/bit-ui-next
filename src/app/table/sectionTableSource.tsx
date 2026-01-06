@@ -111,24 +111,6 @@ interface ListItem {
     status: string | null;
   }
 
-export const sortList = (a: ListItem, b: ListItem, getStatusPriority: Function) => {
-    const statusPriorityA = getStatusPriority(a.status);
-    const statusPriorityB = getStatusPriority(b.status);
-    if (statusPriorityA !== statusPriorityB) {
-      return statusPriorityA - statusPriorityB;
-    }
-
-    if (a.name === null && b.name !== null) return 1;
-    if (a.name !== null && b.name === null) return -1;
-    if (a.name !== null && b.name !== null) {
-      return a.name.localeCompare(b.name, 'ru', { 
-        sensitivity: 'base',
-        caseFirst: 'false'
-      });
-    }
-    return 0;
-  }
-
 export const SectionTable = ({ tableList }: { tableList: React.ReactNode[] }) => {
   return (
     <Flex gap={1} direction="column" defaultStyle={{ width: "100%" }}>
