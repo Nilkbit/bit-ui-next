@@ -31,7 +31,7 @@ export default function SectionTableSearch({
 }: SectionTableSearchProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 12;
+  const ITEMS_PER_PAGE = 14;
 
   useEffect(() => {
     setCurrentPage(1);

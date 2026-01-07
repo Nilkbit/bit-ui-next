@@ -18,7 +18,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-use": "^17.6.0",
-    "sass": "^1.97.1"
+    "sass": "^1.97.1",
+    "supabase": "^2.71.3"
   },
   "devDependencies": {
     "@types/node": "^20",

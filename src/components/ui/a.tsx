@@ -6,12 +6,14 @@ export interface AProps extends DefaultProps {
   href: Url,
   colors?: [Color, Color],
   text?: Text,
-  target?: React.HTMLAttributeAnchorTarget
+  target?: React.HTMLAttributeAnchorTarget,
+  disabled?: boolean
 }
 
 export interface AClickProps extends DefaultProps {
   colors?: [Color, Color],
-  text?: Text
+  text?: Text,
+  disabled?: boolean
 }
 
 export const A = ({
@@ -20,6 +22,7 @@ export const A = ({
   colors = ["gray1", "gray2"],
   text = "body4",
   target = "_self",
+  disabled = false,
   ...props
 }: AProps) => {
 
@@ -37,6 +40,7 @@ export const A = ({
       target={target}
       {...props}
       className={props.className}
+      style={{pointerEvents: `${disabled? "none" : "all"}`}}
     >
       <Styled as="span"
         defaultStyle={defaultStyle}
@@ -53,12 +57,14 @@ export const AClick = ({
   children,
   colors = ["gray1", "gray2"],
   text = "body4",
+  disabled = false,
   ...props
 }: AClickProps) => {
 
   const defaultStyle: React.CSSProperties = {
     color: `${color[colors[0]]}`,
-    cursor: "pointer"
+    cursor: "pointer",
+    pointerEvents: `${disabled? "none" : "all"}`
   }
 
   const hoverStyle: React.CSSProperties = {

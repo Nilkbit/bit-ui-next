@@ -1,4 +1,5 @@
-import { A, Flex, type FlexProps } from "@/components/ui";
+import { A, Flex, Icon, type FlexProps } from "@/components/ui";
+import type { Color } from "@/types/kit";
 
 interface CellProps extends FlexProps {
   variant?: "default"|"default2"|"header"
@@ -53,8 +54,7 @@ const RowHeader = () => {
   return (
     <Flex gap={1} defaultStyle={{width: "100%"}}>
       <TableCell variant="header" defaultStyle={{ flex: "1 1 100%" }} radius={[12, 0, 0, 0]}>Name</TableCell>
-      <TableCell variant="header" defaultStyle={{ flex: "0 0 150px" }} justify="center">Status</TableCell>
-      <TableCell variant="header" defaultStyle={{ flex: "0 0 95px" }} justify="center" radius={[0, 12, 0, 0]}>Link</TableCell>
+      <TableCell variant="header" defaultStyle={{ flex: "0 0 150px" }} justify="center" radius={[0, 12, 0, 0]}>Status</TableCell>
     </Flex>
   )
 }
@@ -72,7 +72,7 @@ export const TableRow = ({
   link: string,
   statusName: Status,
   index: number,
-  last: boolean
+  last: boolean,
 }) => {
   let variant: "default" | "default2";
   if (index % 2 == 0) {
@@ -88,28 +88,29 @@ export const TableRow = ({
     radius2 = [0, 0, 12, 0]
   }
 
-  const NameCell = () => <TableCell variant={variant!} defaultStyle={{ flex: "1 1 100%" }} radius={radius}>{name}</TableCell>;
-  const StatusCell = () => <TableStatusCell defaultStyle={{ flex: "0 0 150px" }} justify="center" variant={statusName}>{status}</TableStatusCell>;
-  const LinkCell = () => 
-    <TableCell radius={radius2} variant={variant!} defaultStyle={{ flex: "0 0 95px" }} justify="center">
-      <A text="mono1" colors={["gray5", "accent3"]} href={link} target="_blank">Click</A>
+  let aColors: [Color, Color] = ["gray5", "gray5"];
+  if (link === "") {
+    aColors = ["gray5", "gray5"];
+  } else {
+    aColors = ["gray5", "accent3"];
+  }
+
+  const NameCell = () => 
+    <TableCell variant={variant!} defaultStyle={{ flex: "1 1 100%" }} radius={radius}>
+      <A text="mono1" colors={aColors} href={link} target="_blank" disabled={link === ""}>
+        <Flex align="center" gap={8}>{name}
+          {(link === "")? <></> : <Icon name="open-in-new"/>}
+      </Flex></A>
     </TableCell>;
+  const StatusCell = () => <TableStatusCell radius={radius2} defaultStyle={{ flex: "0 0 150px" }} justify="center" variant={statusName}>{status}</TableStatusCell>;
 
   return (
     <Flex gap={1} defaultStyle={{width: "100%"}}>
       <NameCell />
       <StatusCell />
-      <LinkCell />
     </Flex>
   );
 }
-
-interface ListItem {
-    id: number;
-    link: string | null;
-    name: string | null;
-    status: string | null;
-  }
 
 export const SectionTable = ({ tableList }: { tableList: React.ReactNode[] }) => {
   return (
